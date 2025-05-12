@@ -1,0 +1,90 @@
+/* FOND GLOBAL */
+.root {
+    -fx-font-family: "Segoe UI", sans-serif;
+    -fx-font-size: 13px;
+    -fx-background-color: #f3f6fa;
+}
+
+/* HEADER & FOOTER */
+.header-bar, .footer-bar {
+    -fx-background-color: #5473a2;
+}
+.header-title, .footer-text {
+    -fx-text-fill: white;
+    -fx-font-size: 16px;
+}
+.btn-dashboard {
+    -fx-background-color: #6a88b4;
+    -fx-text-fill: white;
+}
+
+/* FORM PANEL */
+.form-panel {
+    -fx-background-color: white;
+    -fx-border-color: #bccdda;
+    -fx-border-width: 1;
+    -fx-background-radius: 6;
+    -fx-border-radius: 6;
+}
+.form-title {
+    -fx-font-size: 14px;
+    -fx-text-fill: #162537;
+}
+.form-panel Label {
+    -fx-text-fill: #162537;
+}
+.form-panel .text-field, .form-panel .combo-box {
+    -fx-background-radius: 4;
+    -fx-border-radius: 4;
+    -fx-border-color: #ccdbe8;
+}
+
+/* BOUTONS */
+.btn-add    { -fx-background-color: #6a88b4; -fx-text-fill: white; }
+.btn-modify { -fx-background-color: #3c5988; -fx-text-fill: white; }
+.btn-delete { -fx-background-color: #0f1623; -fx-text-fill: white; }
+.btn-export { -fx-background-color: #2e456f; -fx-text-fill: white; }
+.btn-stats  { -fx-background-color: #cfdbe8; -fx-text-fill: #1e3245; }
+
+.button {
+    -fx-cursor: hand;
+    -fx-background-radius: 4;
+}
+.button:hover {
+    -fx-opacity: 0.85;
+}
+
+/* CARDS */
+.cards-container {
+    -fx-background-color: transparent;
+}
+.material-card {
+    -fx-background-color: #bccdda;
+    -fx-background-radius: 8;
+    -fx-effect: dropshadow(two-pass-box, rgba(0,0,0,0.2), 4, 0, 0, 2);
+    -fx-padding: 10;
+    -fx-cursor: hand;
+}
+.material-card:hover {
+    -fx-background-color: #e6ebf1;
+}
+.material-card.selected-card {
+    -fx-background-color: #2e456f;
+    -fx-border-color: #0f1623;
+    -fx-border-width: 2;
+}
+
+/* SEARCH */
+.search-input {
+    -fx-background-radius: 4;
+    -fx-border-radius: 4;
+    -fx-border-color: #ccdbe8;
+}
+
+/* SCROLLPANE */
+.scroll-pane {
+    -fx-background: transparent;
+}
+
+/* TABLEAU PDF (si vous voulez exporter le CSS aussi) */
+/* Note : le style du PDF ne dépend pas de ce CSS JavaFX */

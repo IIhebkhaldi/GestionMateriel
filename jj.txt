@@ -1,0 +1,4 @@
+id,nom,type,quantite
+3,nassim,khaldi,5
+4,7adid,jjj,5
+5,piece ,solide,4
