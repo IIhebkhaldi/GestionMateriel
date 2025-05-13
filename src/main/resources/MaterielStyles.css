@@ -85,6 +85,3 @@
 .scroll-pane {
     -fx-background: transparent;
 }
-
-/* TABLEAU PDF (si vous voulez exporter le CSS aussi) */
-/* Note : le style du PDF ne dépend pas de ce CSS JavaFX */

@@ -15,7 +15,6 @@
     </properties>
 
     <repositories>
-        <!-- Maven Central pour toutes les dépendances -->
         <repository>
             <id>central</id>
             <url>https://repo.maven.apache.org/maven2</url>
@@ -58,10 +57,19 @@
             <artifactId>io</artifactId>
             <version>7.2.6</version>
         </dependency>
+
+        <!-- Dotenv -->
         <dependency>
             <groupId>io.github.cdimascio</groupId>
             <artifactId>dotenv-java</artifactId>
             <version>3.0.0</version>
+        </dependency>
+
+        <!-- Twilio SDK -->
+        <dependency>
+            <groupId>com.twilio.sdk</groupId>
+            <artifactId>twilio</artifactId>
+            <version>10.5.1</version>
         </dependency>
     </dependencies>
 

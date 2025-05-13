@@ -1,120 +1,58 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.geometry.Insets?>
 <?import javafx.scene.control.*?>
-<?import javafx.scene.effect.DropShadow?>
 <?import javafx.scene.layout.*?>
-<?import javafx.scene.text.Font?>
 <?import java.net.URL?>
 
-<BorderPane prefHeight="650.0" prefWidth="950.0"
-            xmlns="http://javafx.com/javafx/17"
-            xmlns:fx="http://javafx.com/fxml/1"
-            fx:controller="tn.esprit.test.MaterielController">
-
-    <!-- Top Header Bar -->
-    <top>
-        <HBox alignment="CENTER" prefHeight="80.0" styleClass="header-bar">
-            <effect>
-                <DropShadow color="#00000066" height="10.0" radius="4.5" width="10.0"/>
-            </effect>
-            <children>
-                <Label text="Système de Gestion de Matériel" styleClass="header-title">
-                    <font>
-                        <Font name="System Bold" size="28.0"/>
-                    </font>
-                </Label>
-                <Pane HBox.hgrow="ALWAYS"/>
-                <Button fx:id="btnDashboard" text="Dashboard" styleClass="dashboard-btn"/>
-            </children>
-            <padding>
-                <Insets left="15.0" right="15.0"/>
-            </padding>
+<VBox fx:controller="tn.esprit.test.MaterielController" xmlns:fx="http://javafx.com/fxml/1" spacing="10" alignment="TOP_CENTER" styleClass="root">
+    <children>
+        <!-- Header -->
+        <HBox styleClass="header-bar" alignment="CENTER" spacing="10" prefHeight="50">
+            <Label text="Gestion de Matériel" styleClass="header-title" />
         </HBox>
-    </top>
 
-    <!-- Left Panel for Form -->
-    <left>
-        <VBox prefWidth="320.0" spacing="10.0" styleClass="form-panel">
-            <padding>
-                <Insets top="15.0" right="15.0" bottom="15.0" left="15.0"/>
-            </padding>
-            <children>
-                <Label text="Ajouter un Matériel" styleClass="form-title">
-                    <VBox.margin>
-                        <Insets bottom="10.0"/>
-                    </VBox.margin>
-                </Label>
-
-                <Label text="Nom:" styleClass="form-label"/>
-                <TextField fx:id="txtNom" promptText="Nom du matériel" styleClass="form-input"/>
-
-                <Label text="Type:" styleClass="form-label"/>
-                <ComboBox fx:id="comboType" promptText="Sélectionner un type" styleClass="form-input"/>
-
-                <Label text="Quantité:" styleClass="form-label"/>
-                <TextField fx:id="txtQuantite" promptText="Nombre d'unités" styleClass="form-input"/>
-
-                <HBox spacing="10.0">
-                    <padding>
-                        <Insets top="15.0"/>
-                    </padding>
-                    <children>
-                        <Button fx:id="btnAjouter" onAction="#handleAjouter" prefWidth="145.0" text="Ajouter" styleClass="action-btn btn-add"/>
-                        <Button fx:id="btnModifier" onAction="#handleModifier" prefWidth="145.0" text="Modifier" styleClass="action-btn btn-modify"/>
-                    </children>
-                </HBox>
-
-                <HBox spacing="10.0">
-                    <padding>
-                        <Insets top="10.0"/>
-                    </padding>
-                    <children>
-                        <Button fx:id="btnSupprimer" onAction="#handleSupprimer" prefWidth="145.0" text="Supprimer" styleClass="action-btn btn-delete"/>
-                    </children>
-                </HBox>
-
-                <Button fx:id="btnExporter" onAction="#handleExporter" prefWidth="300.0" text="Exporter vers CSV" styleClass="action-btn btn-export"/>
-                <Button fx:id="btnExportPDF" onAction="#handleExportPDF" prefWidth="300.0" text="Exporter en PDF" styleClass="action-btn btn-export"/>
-                <!-- Nouveau bouton pour l'envoi de SMS -->
-                <Button fx:id="btnEnvoyerSMS" onAction="#handleEnvoyerSMS" prefWidth="300.0" text="Envoyer SMS" styleClass="action-btn btn-export"/>
-            </children>
+        <!-- Form Panel -->
+        <VBox styleClass="form-panel" spacing="10" alignment="CENTER" prefWidth="800">
+            <Label text="Ajouter/Modifier Matériel" styleClass="form-title" />
+            <HBox spacing="10" alignment="CENTER">
+                <Label text="Nom :" />
+                <TextField fx:id="txtNom" promptText="Nom du matériel" styleClass="text-field" />
+                <Label text="Type :" />
+                <ComboBox fx:id="comboType" promptText="Sélectionner un type" styleClass="combo-box" />
+                <Label text="Quantité :" />
+                <TextField fx:id="txtQuantite" promptText="Quantité" styleClass="text-field" />
+            </HBox>
+            <HBox spacing="10" alignment="CENTER">
+                <Button fx:id="btnAjouter" text="Ajouter" onAction="#handleAjouter" styleClass="btn-add" />
+                <Button fx:id="btnModifier" text="Modifier" onAction="#handleModifier" styleClass="btn-modify" />
+                <Button fx:id="btnSupprimer" text="Supprimer" onAction="#handleSupprimer" styleClass="btn-delete" />
+                <Button fx:id="btnExporter" text="Exporter CSV" onAction="#handleExporter" styleClass="btn-export" />
+                <Button fx:id="btnExportPDF" text="Exporter PDF" onAction="#handleExportPDF" styleClass="btn-export" />
+                <Button fx:id="btnEnvoyerSMS" text="Envoyer SMS" onAction="#handleEnvoyerSMS" styleClass="btn-export" />
+            </HBox>
         </VBox>
-    </left>
 
-    <!-- Center Panel -->
-    <center>
-        <VBox styleClass="main-panel">
-            <children>
-                <HBox alignment="CENTER_LEFT" spacing="10.0" styleClass="search-panel">
-                    <padding>
-                        <Insets top="12.0" bottom="12.0" left="15.0" right="15.0"/>
-                    </padding>
-                    <children>
-                        <TextField fx:id="txtRecherche" promptText="Rechercher par nom..." styleClass="search-input" prefWidth="260.0"/>
-                        <ComboBox fx:id="comboFiltre" promptText="Filtrer par type" styleClass="search-input" prefWidth="200.0"/>
-                        <Button text="Statistiques" styleClass="stats-btn"/>
-                    </children>
-                </HBox>
-                <ScrollPane fitToWidth="true" styleClass="scroll-pane">
-                    <content>
-                        <FlowPane fx:id="materialCards" hgap="15.0" vgap="15.0" styleClass="cards-container"/>
-                    </content>
-                </ScrollPane>
-            </children>
-        </VBox>
-    </center>
-
-    <!-- Bottom Status Bar -->
-    <bottom>
-        <HBox alignment="CENTER" prefHeight="30.0" styleClass="footer-bar">
-            <children>
-                <Label text="© 2025 Système de Gestion de Matériel - Projet Universitaire" styleClass="footer-text"/>
-            </children>
+        <!-- Search Panel -->
+        <HBox spacing="10" alignment="CENTER">
+            <Label text="Rechercher :" />
+            <TextField fx:id="txtRecherche" promptText="Rechercher par nom" styleClass="search-input" />
+            <Label text="Filtrer par type :" />
+            <ComboBox fx:id="comboFiltre" promptText="Filtrer par type" styleClass="combo-box" />
         </HBox>
-    </bottom>
 
+        <!-- Cards Container -->
+        <ScrollPane fitToWidth="true" styleClass="scroll-pane">
+            <content>
+                <FlowPane fx:id="materialCards" hgap="10" vgap="10" styleClass="cards-container" />
+            </content>
+        </ScrollPane>
+
+        <!-- Footer -->
+        <HBox styleClass="footer-bar" alignment="CENTER" spacing="10" prefHeight="30">
+            <Label text="© 2025 Gestion Matériel" styleClass="footer-text" />
+        </HBox>
+    </children>
     <stylesheets>
-        <URL value="@MaterielStyles.css"/>
+        <URL value="@MaterielStyles.css" />
     </stylesheets>
-</BorderPane>
+</VBox>
