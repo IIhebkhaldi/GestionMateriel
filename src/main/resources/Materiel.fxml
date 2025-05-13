@@ -2,18 +2,20 @@
 
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
 <?import java.net.URL?>
 
 <VBox fx:controller="tn.esprit.test.MaterielController" xmlns:fx="http://javafx.com/fxml/1" spacing="10" alignment="TOP_CENTER" styleClass="root">
     <children>
-        <!-- Header -->
+
+        <!-- HEADER -->
         <HBox styleClass="header-bar" alignment="CENTER" spacing="10" prefHeight="50">
             <Label text="Gestion de Matériel" styleClass="header-title" />
         </HBox>
 
-        <!-- Form Panel -->
+        <!-- FORM PANEL -->
         <VBox styleClass="form-panel" spacing="10" alignment="CENTER" prefWidth="800">
-            <Label text="Ajouter/Modifier Matériel" styleClass="form-title" />
+            <Label text="Ajouter / Modifier un Matériel" styleClass="form-title" />
             <HBox spacing="10" alignment="CENTER">
                 <Label text="Nom :" />
                 <TextField fx:id="txtNom" promptText="Nom du matériel" styleClass="text-field" />
@@ -32,7 +34,7 @@
             </HBox>
         </VBox>
 
-        <!-- Search Panel -->
+        <!-- SEARCH PANEL -->
         <HBox spacing="10" alignment="CENTER">
             <Label text="Rechercher :" />
             <TextField fx:id="txtRecherche" promptText="Rechercher par nom" styleClass="search-input" />
@@ -40,18 +42,21 @@
             <ComboBox fx:id="comboFiltre" promptText="Filtrer par type" styleClass="combo-box" />
         </HBox>
 
-        <!-- Cards Container -->
+        <!-- MATERIAL CARDS -->
         <ScrollPane fitToWidth="true" styleClass="scroll-pane">
             <content>
                 <FlowPane fx:id="materialCards" hgap="10" vgap="10" styleClass="cards-container" />
             </content>
         </ScrollPane>
 
-        <!-- Footer -->
+        <!-- FOOTER -->
         <HBox styleClass="footer-bar" alignment="CENTER" spacing="10" prefHeight="30">
             <Label text="© 2025 Gestion Matériel" styleClass="footer-text" />
         </HBox>
+
     </children>
+
+    <!-- Stylesheet -->
     <stylesheets>
         <URL value="@MaterielStyles.css" />
     </stylesheets>

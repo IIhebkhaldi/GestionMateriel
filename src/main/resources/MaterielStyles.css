@@ -1,87 +1,230 @@
+/* Variables globales basées sur la charte graphique */
+* {
+    -primary-color: #1F2E4D; /* Bleu foncé */
+    -accent-color: #0066FF; /* Bleu clair pour boutons */
+    -success-color: #28a745; /* Vert pour succès */
+    -danger-color: #dc3545; /* Rouge pour actions de suppression */
+    -bg-color: #f9f9f9; /* Arrière-plan global */
+    -card-bg: #ffffff; /* Cartes */
+    -text-color: #333333;
+    -muted-text: #666666;
+    -border-radius: 10px;
+    -shadow: dropshadow(three-pass-box, rgba(0,0,0,0.1), 8, 0, 0, 2);
+}
+
 /* FOND GLOBAL */
 .root {
-    -fx-font-family: "Segoe UI", sans-serif;
+    -fx-font-family: "Open Sans", "Segoe UI", sans-serif;
     -fx-font-size: 13px;
-    -fx-background-color: #f3f6fa;
+    -fx-background-color: -bg-color;
 }
 
 /* HEADER & FOOTER */
 .header-bar, .footer-bar {
-    -fx-background-color: #5473a2;
+    -fx-background-color: -primary-color;
+    -fx-padding: 10 15;
 }
-.header-title, .footer-text {
+
+.header-title {
     -fx-text-fill: white;
-    -fx-font-size: 16px;
+    -fx-font-size: 18px;
+    -fx-font-weight: bold;
 }
-.btn-dashboard {
-    -fx-background-color: #6a88b4;
+
+.footer-text {
     -fx-text-fill: white;
+    -fx-font-size: 12px;
 }
 
 /* FORM PANEL */
 .form-panel {
-    -fx-background-color: white;
-    -fx-border-color: #bccdda;
+    -fx-background-color: -card-bg;
+    -fx-border-color: #e0e0e0;
     -fx-border-width: 1;
-    -fx-background-radius: 6;
-    -fx-border-radius: 6;
+    -fx-background-radius: -border-radius;
+    -fx-border-radius: -border-radius;
+    -fx-padding: 20;
+    -fx-effect: -shadow;
 }
+
 .form-title {
-    -fx-font-size: 14px;
-    -fx-text-fill: #162537;
+    -fx-font-size: 16px;
+    -fx-font-weight: bold;
+    -fx-text-fill: -primary-color;
+    -fx-padding: 0 0 10 0;
 }
+
 .form-panel Label {
-    -fx-text-fill: #162537;
+    -fx-text-fill: -text-color;
 }
-.form-panel .text-field, .form-panel .combo-box {
-    -fx-background-radius: 4;
-    -fx-border-radius: 4;
-    -fx-border-color: #ccdbe8;
+
+.form-panel .text-field, .form-panel .combo-box, .form-panel .text-area {
+    -fx-background-color: white;
+    -fx-border-color: #e0e0e0;
+    -fx-text-fill: -text-color;
+    -fx-background-radius: 5;
+    -fx-border-radius: 5;
+    -fx-padding: 8;
+}
+
+.form-panel .text-field:focused, .form-panel .combo-box:focused {
+    -fx-border-color: -accent-color;
 }
 
 /* BOUTONS */
-.btn-add    { -fx-background-color: #6a88b4; -fx-text-fill: white; }
-.btn-modify { -fx-background-color: #3c5988; -fx-text-fill: white; }
-.btn-delete { -fx-background-color: #0f1623; -fx-text-fill: white; }
-.btn-export { -fx-background-color: #2e456f; -fx-text-fill: white; }
-.btn-stats  { -fx-background-color: #cfdbe8; -fx-text-fill: #1e3245; }
-
 .button {
     -fx-cursor: hand;
-    -fx-background-radius: 4;
+    -fx-background-radius: 6;
+    -fx-font-weight: bold;
+    -fx-padding: 10 20;
+    -fx-background-insets: 0;
+    -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.1), 3, 0, 0, 1);
 }
+
 .button:hover {
-    -fx-opacity: 0.85;
+    -fx-opacity: 0.9;
+}
+
+.button:pressed {
+    -fx-opacity: 0.8;
+    -fx-effect: none;
+}
+
+.btn-primary {
+    -fx-background-color: -accent-color;
+    -fx-text-fill: white;
+}
+
+.btn-add {
+    -fx-background-color: -accent-color;
+    -fx-text-fill: white;
+}
+
+.btn-modify {
+    -fx-background-color: #5578e6;
+    -fx-text-fill: white;
+}
+
+.btn-delete {
+    -fx-background-color: -danger-color;
+    -fx-text-fill: white;
+}
+
+.btn-export {
+    -fx-background-color: #4c5f8f;
+    -fx-text-fill: white;
+}
+
+.btn-cancel {
+    -fx-background-color: #6c757d;
+    -fx-text-fill: white;
+}
+
+.btn-success {
+    -fx-background-color: -success-color;
+    -fx-text-fill: white;
+}
+
+/* SEARCH */
+.search-input {
+    -fx-background-color: white;
+    -fx-border-color: #e0e0e0;
+    -fx-text-fill: -text-color;
+    -fx-background-radius: 20;
+    -fx-border-radius: 20;
+    -fx-padding: 8 15;
+}
+
+.search-container {
+    -fx-padding: 10;
+    -fx-background-color: -card-bg;
+    -fx-background-radius: -border-radius;
+    -fx-border-radius: -border-radius;
+    -fx-effect: -shadow;
 }
 
 /* CARDS */
 .cards-container {
     -fx-background-color: transparent;
-}
-.material-card {
-    -fx-background-color: #bccdda;
-    -fx-background-radius: 8;
-    -fx-effect: dropshadow(two-pass-box, rgba(0,0,0,0.2), 4, 0, 0, 2);
     -fx-padding: 10;
+}
+
+.material-card {
+    -fx-background-color: -card-bg;
+    -fx-background-radius: -border-radius;
+    -fx-padding: 15;
+    -fx-effect: -shadow;
     -fx-cursor: hand;
+    -fx-border-width: 1;
+    -fx-border-color: transparent;
 }
+
 .material-card:hover {
-    -fx-background-color: #e6ebf1;
+    -fx-background-color: #f8f9fa;
+    -fx-border-color: #e0e0e0;
 }
+
+.material-card .label {
+    -fx-text-fill: -text-color;
+}
+
 .material-card.selected-card {
-    -fx-background-color: #2e456f;
-    -fx-border-color: #0f1623;
+    -fx-background-color: #e8f0ff;
+    -fx-border-color: -accent-color;
     -fx-border-width: 2;
 }
 
-/* SEARCH */
-.search-input {
-    -fx-background-radius: 4;
-    -fx-border-radius: 4;
-    -fx-border-color: #ccdbe8;
+.material-card.selected-card .label {
+    -fx-text-fill: -primary-color;
+    -fx-font-weight: bold;
 }
 
 /* SCROLLPANE */
 .scroll-pane {
     -fx-background: transparent;
+    -fx-background-color: transparent;
+}
+
+.scroll-pane > .viewport {
+    -fx-background-color: transparent;
+}
+
+.scroll-bar:vertical {
+    -fx-background-color: #f0f0f0;
+    -fx-background-radius: 0;
+}
+
+.scroll-bar:vertical .thumb {
+    -fx-background-color: #cdcdcd;
+    -fx-background-radius: 5;
+}
+
+/* DIALOG STYLING */
+.dialog-pane {
+    -fx-background-color: -bg-color;
+}
+
+.dialog-pane .header-panel {
+    -fx-background-color: -primary-color;
+}
+
+.dialog-pane .header-panel .label {
+    -fx-text-fill: white;
+    -fx-font-size: 16px;
+    -fx-font-weight: bold;
+}
+
+.dialog-pane > .content {
+    -fx-padding: 15;
+}
+
+/* Animation transitons */
+.fade-in {
+    -fx-opacity: 0;
+    -fx-animation: fadeIn 0.3s ease-in forwards;
+}
+
+@keyframes fadeIn {
+    from { -fx-opacity: 0; }
+    to { -fx-opacity: 1; }
 }
