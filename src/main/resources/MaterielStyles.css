@@ -1,230 +1,186 @@
-/* Variables globales basées sur la charte graphique */
-* {
-    -primary-color: #1F2E4D; /* Bleu foncé */
-    -accent-color: #0066FF; /* Bleu clair pour boutons */
-    -success-color: #28a745; /* Vert pour succès */
-    -danger-color: #dc3545; /* Rouge pour actions de suppression */
-    -bg-color: #f9f9f9; /* Arrière-plan global */
-    -card-bg: #ffffff; /* Cartes */
-    -text-color: #333333;
-    -muted-text: #666666;
-    -border-radius: 10px;
-    -shadow: dropshadow(three-pass-box, rgba(0,0,0,0.1), 8, 0, 0, 2);
-}
+/* MaterielStyles.css */
 
-/* FOND GLOBAL */
+/* COULEURS PRINCIPALES */
 .root {
-    -fx-font-family: "Open Sans", "Segoe UI", sans-serif;
-    -fx-font-size: 13px;
-    -fx-background-color: -bg-color;
+    -fx-base-color: #133254;
+    -fx-secondary-color: #1a4675;
+    -fx-accent-color: #2a5a8c;
+    -fx-light-color: #eaeef3;
+    -fx-dark-text: #333333;
+    -fx-light-text: #ffffff;
+
+    -fx-background-color: linear-gradient(to bottom right, -fx-base-color, -fx-secondary-color);
+    -fx-font-family: "Segoe UI", Arial, sans-serif;
+    -fx-font-size: 14px;
 }
 
-/* HEADER & FOOTER */
-.header-bar, .footer-bar {
-    -fx-background-color: -primary-color;
-    -fx-padding: 10 15;
+/* HEADER */
+.header-bar {
+    -fx-background-color: -fx-base-color;
+    -fx-padding: 15px;
+    -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.4), 10, 0, 0, 3);
 }
 
 .header-title {
-    -fx-text-fill: white;
-    -fx-font-size: 18px;
-    -fx-font-weight: bold;
+    -fx-font-family: "Segoe UI Semibold", Arial, sans-serif;
+    -fx-font-size: 24px;
+    -fx-text-fill: -fx-light-text;
+    -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.3), 3, 0, 0, 1);
 }
 
-.footer-text {
-    -fx-text-fill: white;
-    -fx-font-size: 12px;
-}
-
-/* FORM PANEL */
+/* FORMULAIRE */
 .form-panel {
-    -fx-background-color: -card-bg;
-    -fx-border-color: #e0e0e0;
-    -fx-border-width: 1;
-    -fx-background-radius: -border-radius;
-    -fx-border-radius: -border-radius;
-    -fx-padding: 20;
-    -fx-effect: -shadow;
+    -fx-background-color: rgba(255, 255, 255, 0.9);
+    -fx-background-radius: 8px;
+    -fx-padding: 15px;
+    -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.2), 10, 0, 0, 3);
+    -fx-margin: 10px 20px;
 }
 
 .form-title {
-    -fx-font-size: 16px;
-    -fx-font-weight: bold;
-    -fx-text-fill: -primary-color;
-    -fx-padding: 0 0 10 0;
+    -fx-font-family: "Segoe UI Semibold", Arial, sans-serif;
+    -fx-font-size: 18px;
+    -fx-text-fill: -fx-base-color;
 }
 
-.form-panel Label {
-    -fx-text-fill: -text-color;
+.text-field, .combo-box {
+    -fx-background-color: -fx-light-color;
+    -fx-border-color: #d0d0d0;
+    -fx-border-radius: 4px;
+    -fx-background-radius: 4px;
+    -fx-padding: 8px;
+    -fx-font-size: 14px;
 }
 
-.form-panel .text-field, .form-panel .combo-box, .form-panel .text-area {
-    -fx-background-color: white;
-    -fx-border-color: #e0e0e0;
-    -fx-text-fill: -text-color;
-    -fx-background-radius: 5;
-    -fx-border-radius: 5;
-    -fx-padding: 8;
-}
-
-.form-panel .text-field:focused, .form-panel .combo-box:focused {
-    -fx-border-color: -accent-color;
+.text-field:focused, .combo-box:focused {
+    -fx-border-color: -fx-accent-color;
+    -fx-effect: dropshadow(three-pass-box, rgba(19, 50, 84, 0.2), 3, 0, 0, 0);
 }
 
 /* BOUTONS */
 .button {
-    -fx-cursor: hand;
-    -fx-background-radius: 6;
+    -fx-background-radius: 4px;
+    -fx-padding: 8px 15px;
+    -fx-font-size: 14px;
     -fx-font-weight: bold;
-    -fx-padding: 10 20;
-    -fx-background-insets: 0;
-    -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.1), 3, 0, 0, 1);
-}
-
-.button:hover {
-    -fx-opacity: 0.9;
-}
-
-.button:pressed {
-    -fx-opacity: 0.8;
-    -fx-effect: none;
-}
-
-.btn-primary {
-    -fx-background-color: -accent-color;
-    -fx-text-fill: white;
+    -fx-cursor: hand;
+    -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.2), 3, 0, 0, 1);
 }
 
 .btn-add {
-    -fx-background-color: -accent-color;
+    -fx-background-color: #2a7d4f;
     -fx-text-fill: white;
+}
+
+.btn-add:hover {
+    -fx-background-color: #34946a;
 }
 
 .btn-modify {
-    -fx-background-color: #5578e6;
+    -fx-background-color: #d19c27;
     -fx-text-fill: white;
+}
+
+.btn-modify:hover {
+    -fx-background-color: #e5ac2d;
 }
 
 .btn-delete {
-    -fx-background-color: -danger-color;
+    -fx-background-color: #b33939;
     -fx-text-fill: white;
+}
+
+.btn-delete:hover {
+    -fx-background-color: #d63434;
 }
 
 .btn-export {
-    -fx-background-color: #4c5f8f;
+    -fx-background-color: -fx-accent-color;
     -fx-text-fill: white;
 }
 
-.btn-cancel {
-    -fx-background-color: #6c757d;
-    -fx-text-fill: white;
+.btn-export:hover {
+    -fx-background-color: derive(-fx-accent-color, 10%);
 }
 
-.btn-success {
-    -fx-background-color: -success-color;
-    -fx-text-fill: white;
-}
-
-/* SEARCH */
+/* RECHERCHE */
 .search-input {
-    -fx-background-color: white;
-    -fx-border-color: #e0e0e0;
-    -fx-text-fill: -text-color;
-    -fx-background-radius: 20;
-    -fx-border-radius: 20;
-    -fx-padding: 8 15;
-}
-
-.search-container {
-    -fx-padding: 10;
-    -fx-background-color: -card-bg;
-    -fx-background-radius: -border-radius;
-    -fx-border-radius: -border-radius;
-    -fx-effect: -shadow;
+    -fx-pref-width: 250px;
 }
 
 /* CARDS */
-.cards-container {
-    -fx-background-color: transparent;
-    -fx-padding: 10;
-}
-
-.material-card {
-    -fx-background-color: -card-bg;
-    -fx-background-radius: -border-radius;
-    -fx-padding: 15;
-    -fx-effect: -shadow;
-    -fx-cursor: hand;
-    -fx-border-width: 1;
-    -fx-border-color: transparent;
-}
-
-.material-card:hover {
-    -fx-background-color: #f8f9fa;
-    -fx-border-color: #e0e0e0;
-}
-
-.material-card .label {
-    -fx-text-fill: -text-color;
-}
-
-.material-card.selected-card {
-    -fx-background-color: #e8f0ff;
-    -fx-border-color: -accent-color;
-    -fx-border-width: 2;
-}
-
-.material-card.selected-card .label {
-    -fx-text-fill: -primary-color;
-    -fx-font-weight: bold;
-}
-
-/* SCROLLPANE */
 .scroll-pane {
-    -fx-background: transparent;
     -fx-background-color: transparent;
+    -fx-border-color: transparent;
 }
 
 .scroll-pane > .viewport {
     -fx-background-color: transparent;
 }
 
-.scroll-bar:vertical {
-    -fx-background-color: #f0f0f0;
-    -fx-background-radius: 0;
+.cards-container {
+    -fx-background-color: transparent;
+    -fx-padding: 20px;
 }
 
-.scroll-bar:vertical .thumb {
-    -fx-background-color: #cdcdcd;
-    -fx-background-radius: 5;
+.material-card {
+    -fx-background-color: white;
+    -fx-background-radius: 8px;
+    -fx-padding: 15px;
+    -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.1), 8, 0, 0, 2);
+    -fx-pref-width: 220px;
+    -fx-min-height: 130px;
+    -fx-cursor: hand;
+    -fx-border-radius: 8px;
+    -fx-border-color: transparent;
+    -fx-border-width: 2px;
 }
 
-/* DIALOG STYLING */
-.dialog-pane {
-    -fx-background-color: -bg-color;
+.material-card:hover {
+    -fx-effect: dropshadow(three-pass-box, rgba(19, 50, 84, 0.3), 10, 0, 0, 3);
+    -fx-background-color: derive(white, -2%);
 }
 
-.dialog-pane .header-panel {
-    -fx-background-color: -primary-color;
+.material-card Label {
+    -fx-font-size: 14px;
+    -fx-text-fill: -fx-dark-text;
 }
 
-.dialog-pane .header-panel .label {
-    -fx-text-fill: white;
-    -fx-font-size: 16px;
-    -fx-font-weight: bold;
+.selected-card {
+    -fx-border-color: -fx-base-color;
+    -fx-background-color: derive(-fx-light-color, 0%);
 }
 
-.dialog-pane > .content {
-    -fx-padding: 15;
+/* FOOTER */
+.footer-bar {
+    -fx-background-color: -fx-base-color;
+    -fx-padding: 8px;
 }
 
-/* Animation transitons */
-.fade-in {
-    -fx-opacity: 0;
-    -fx-animation: fadeIn 0.3s ease-in forwards;
+.footer-text {
+    -fx-text-fill: -fx-light-text;
+    -fx-font-size: 12px;
 }
 
-@keyframes fadeIn {
-    from { -fx-opacity: 0; }
-    to { -fx-opacity: 1; }
+/* POPUP */
+.popup-dialog {
+    -fx-background-color: white;
+    -fx-background-radius: 8px;
+    -fx-padding: 20px;
+    -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.4), 15, 0, 0, 5);
+}
+
+.popup-title {
+    -fx-font-family: "Segoe UI Semibold", Arial, sans-serif;
+    -fx-font-size: 20px;
+    -fx-text-fill: -fx-base-color;
+    -fx-padding: 0 0 10px 0;
+}
+
+.popup-field {
+    -fx-min-width: 300px;
+}
+
+.dialog-button {
+    -fx-min-width: 120px;
 }

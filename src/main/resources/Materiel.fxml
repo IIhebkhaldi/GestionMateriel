@@ -5,59 +5,61 @@
 <?import javafx.scene.text.*?>
 <?import java.net.URL?>
 
-<VBox fx:controller="tn.esprit.test.MaterielController" xmlns:fx="http://javafx.com/fxml/1" spacing="10" alignment="TOP_CENTER" styleClass="root">
-    <children>
+<BorderPane fx:controller="tn.esprit.test.MaterielController" xmlns:fx="http://javafx.com/fxml/1" styleClass="root">
 
-        <!-- HEADER -->
-        <HBox styleClass="header-bar" alignment="CENTER" spacing="10" prefHeight="50">
+    <!-- HEADER -->
+    <top>
+        <HBox styleClass="header-bar" alignment="CENTER" spacing="10">
             <Label text="Gestion de Matériel" styleClass="header-title" />
         </HBox>
+    </top>
 
-        <!-- FORM PANEL -->
-        <VBox styleClass="form-panel" spacing="10" alignment="CENTER" prefWidth="800">
-            <Label text="Ajouter / Modifier un Matériel" styleClass="form-title" />
-            <HBox spacing="10" alignment="CENTER">
-                <Label text="Nom :" />
-                <TextField fx:id="txtNom" promptText="Nom du matériel" styleClass="text-field" />
-                <Label text="Type :" />
-                <ComboBox fx:id="comboType" promptText="Sélectionner un type" styleClass="combo-box" />
-                <Label text="Quantité :" />
-                <TextField fx:id="txtQuantite" promptText="Quantité" styleClass="text-field" />
+    <!-- CONTENU PRINCIPAL -->
+    <center>
+        <VBox spacing="15" alignment="TOP_CENTER">
+
+            <!-- RECHERCHE ET FILTRES -->
+            <HBox spacing="15" alignment="CENTER" styleClass="form-panel">
+                <HBox spacing="10" alignment="CENTER" HBox.hgrow="ALWAYS">
+                    <Label text="Rechercher :" />
+                    <TextField fx:id="txtRecherche" promptText="Rechercher par nom" styleClass="search-input" HBox.hgrow="ALWAYS" />
+                </HBox>
+                <HBox spacing="10" alignment="CENTER">
+                    <Label text="Type :" />
+                    <ComboBox fx:id="comboFiltre" promptText="Tous les types" styleClass="combo-box" prefWidth="150" />
+                </HBox>
             </HBox>
-            <HBox spacing="10" alignment="CENTER">
-                <Button fx:id="btnAjouter" text="Ajouter" onAction="#handleAjouter" styleClass="btn-add" />
-                <Button fx:id="btnModifier" text="Modifier" onAction="#handleModifier" styleClass="btn-modify" />
-                <Button fx:id="btnSupprimer" text="Supprimer" onAction="#handleSupprimer" styleClass="btn-delete" />
+
+            <!-- BOUTONS D'ACTION -->
+            <HBox spacing="15" alignment="CENTER" styleClass="form-panel">
+                <Button fx:id="btnAjouter" text="Ajouter un matériel" onAction="#handleAjouter" styleClass="btn-add" />
+                <Button fx:id="btnModifier" text="Modifier" onAction="#handleModifier" styleClass="btn-modify" disable="true" />
+                <Button fx:id="btnSupprimer" text="Supprimer" onAction="#handleSupprimer" styleClass="btn-delete" disable="true" />
+                <Separator orientation="VERTICAL" />
                 <Button fx:id="btnExporter" text="Exporter CSV" onAction="#handleExporter" styleClass="btn-export" />
                 <Button fx:id="btnExportPDF" text="Exporter PDF" onAction="#handleExportPDF" styleClass="btn-export" />
                 <Button fx:id="btnEnvoyerSMS" text="Envoyer SMS" onAction="#handleEnvoyerSMS" styleClass="btn-export" />
             </HBox>
+
+            <!-- LISTE DES MATÉRIELS -->
+            <ScrollPane fitToWidth="true" styleClass="scroll-pane" VBox.vgrow="ALWAYS">
+                <content>
+                    <FlowPane fx:id="materialCards" hgap="15" vgap="15" styleClass="cards-container" />
+                </content>
+            </ScrollPane>
+
         </VBox>
+    </center>
 
-        <!-- SEARCH PANEL -->
-        <HBox spacing="10" alignment="CENTER">
-            <Label text="Rechercher :" />
-            <TextField fx:id="txtRecherche" promptText="Rechercher par nom" styleClass="search-input" />
-            <Label text="Filtrer par type :" />
-            <ComboBox fx:id="comboFiltre" promptText="Filtrer par type" styleClass="combo-box" />
-        </HBox>
-
-        <!-- MATERIAL CARDS -->
-        <ScrollPane fitToWidth="true" styleClass="scroll-pane">
-            <content>
-                <FlowPane fx:id="materialCards" hgap="10" vgap="10" styleClass="cards-container" />
-            </content>
-        </ScrollPane>
-
-        <!-- FOOTER -->
-        <HBox styleClass="footer-bar" alignment="CENTER" spacing="10" prefHeight="30">
+    <!-- FOOTER -->
+    <bottom>
+        <HBox styleClass="footer-bar" alignment="CENTER" spacing="10">
             <Label text="© 2025 Gestion Matériel" styleClass="footer-text" />
         </HBox>
-
-    </children>
+    </bottom>
 
     <!-- Stylesheet -->
     <stylesheets>
         <URL value="@MaterielStyles.css" />
     </stylesheets>
-</VBox>
+</BorderPane>
