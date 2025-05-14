@@ -255,6 +255,7 @@ public class MaterielController implements Initializable {
         TextField ph = new TextField();
         ph.setPromptText("+216...");
         TextArea msg = new TextArea();
+        msg.setText("Inventaire: " + materielList.size());
         c.getChildren().addAll(new Label("Tel:"), ph, new Label("Msg:"), msg);
         d.getDialogPane().setContent(c);
         Optional<ButtonType> r = d.showAndWait();

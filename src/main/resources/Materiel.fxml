@@ -3,16 +3,32 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
+<?import javafx.scene.image.*?>
 <?import java.net.URL?>
 
-<BorderPane fx:controller="tn.esprit.test.MaterielController" xmlns:fx="http://javafx.com/fxml/1" styleClass="root">
-
+<BorderPane fx:controller="tn.esprit.test.MaterielController" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/22" styleClass="root">
     <!-- HEADER -->
     <top>
-        <HBox styleClass="header-bar" alignment="CENTER" spacing="10">
+        <HBox styleClass="header-bar" alignment="CENTER" spacing="15">
+            <ImageView fitHeight="50" fitWidth="50" preserveRatio="true">
+                <image>
+                    <Image url="@planify.jpg"/>
+                </image>
+            </ImageView>
             <Label text="Gestion de Matériel" styleClass="header-title" />
         </HBox>
     </top>
+
+    <!-- SIDE PANEL -->
+    <left>
+        <VBox styleClass="side-panel" spacing="10" prefWidth="200">
+            <Label text="Menu" styleClass="side-panel-title"/>
+            <Button text="Tableau de bord" styleClass="side-button"/>
+            <Button text="Inventaire" styleClass="side-button"/>
+            <Button text="Rapports" styleClass="side-button"/>
+            <Button text="Paramètres" styleClass="side-button"/>
+        </VBox>
+    </left>
 
     <!-- CONTENU PRINCIPAL -->
     <center>
